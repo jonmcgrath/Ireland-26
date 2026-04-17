@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ireland Family Trip — Aug 2026</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f5f3; color: #1a1a1a; padding: 2rem 1rem; }
+.wrap { max-width: 760px; margin: 0 auto; }
+h1 { font-size: 22px; font-weight: 500; margin-bottom: 4px; }
+.subtitle { font-size: 14px; color: #666; margin-bottom: 20px; }
+.trip-header { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 8px; margin-bottom: 16px; }
+.stat { background: #eeede8; border-radius: 8px; padding: 10px 12px; }
+.stat-label { font-size: 11px; color: #888; text-transform: uppercase; letter-spacing: 0.07em; }
+.stat-val { font-size: 14px; font-weight: 500; color: #1a1a1a; margin-top: 3px; }
+.alert { background: #FAEEDA; border-radius: 0; padding: 10px 14px; margin-bottom: 14px; font-size: 13px; color: #633806; border-left: 3px solid #EF9F27; }
+.day-nav { display: flex; gap: 6px; margin-bottom: 14px; flex-wrap: wrap; }
+.day-btn { padding: 6px 14px; font-size: 13px; border: 1px solid #ccc; border-radius: 8px; background: #fff; color: #555; cursor: pointer; transition: all 0.15s; }
+.day-btn:hover { background: #f0f0ee; }
+.day-btn.active { background: #0F6E56; color: #E1F5EE; border-color: #0F6E56; font-weight: 500; }
+.day-panel { background: #fff; border: 1px solid #e5e5e2; border-radius: 12px; overflow: hidden; }
+.day-head { padding: 14px 16px; border-bottom: 1px solid #e5e5e2; display: flex; align-items: center; gap: 12px; }
+.day-dot { width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 500; flex-shrink: 0; }
+.day-meta { flex: 1; }
+.day-date { font-size: 12px; color: #888; }
+.day-name { font-size: 16px; font-weight: 500; color: #1a1a1a; }
+.day-body { padding: 14px 16px; }
+.section-head { font-size: 11px; text-transform: uppercase; letter-spacing: 0.07em; color: #999; margin: 14px 0 8px; }
+.section-head:first-child { margin-top: 0; }
+.act { display: flex; gap: 10px; margin-bottom: 10px; }
+.act-dot { width: 8px; height: 8px; border-radius: 50%; margin-top: 6px; flex-shrink: 0; }
+.act-title { font-size: 14px; font-weight: 500; color: #1a1a1a; }
+.act-desc { font-size: 13px; color: #555; line-height: 1.5; margin-top: 2px; }
+.tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 5px; }
+.tag { font-size: 11px; padding: 2px 8px; border-radius: 20px; }
+.t-green { background: #EAF3DE; color: #27500A; }
+.t-purple { background: #EEEDFE; color: #3C3489; }
+.t-amber { background: #FAEEDA; color: #633806; }
+.t-red { background: #FCEBEB; color: #791F1F; }
+.t-teal { background: #E1F5EE; color: #085041; }
+.hotel-box { background: #f5f5f3; border-radius: 8px; padding: 10px 12px; margin-top: 12px; }
+.hotel-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.07em; color: #999; }
+.hotel-row { margin-top: 8px; }
+.hotel-name { font-size: 13px; font-weight: 500; color: #1a1a1a; }
+.hotel-note { font-size: 12px; color: #666; }
+.rec { border: 1.5px solid #0F6E56; border-radius: 6px; padding: 1px 7px; font-size: 11px; color: #0F6E56; font-weight: 500; display: inline-block; margin-left: 6px; vertical-align: middle; }
+.log-section { background: #fff; border: 1px solid #e5e5e2; border-radius: 12px; padding: 14px 16px; margin-bottom: 14px; }
+.log-title { font-size: 13px; font-weight: 500; color: #1a1a1a; margin-bottom: 10px; }
+.log-table { width: 100%; font-size: 13px; border-collapse: collapse; }
+.log-table td { padding: 6px 0; border-bottom: 1px solid #e5e5e2; vertical-align: top; }
+.log-table tr:last-child td { border-bottom: none; }
+.log-key { color: #888; width: 110px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>Ireland Family Trip</h1>
+<p class="subtitle">August 2026 &mdash; Boston to Dublin &mdash; 8 people</p>
+
+<div class="trip-header">
+  <div class="stat"><div class="stat-label">Dates</div><div class="stat-val">Aug 5 eve &mdash; Aug 12</div></div>
+  <div class="stat"><div class="stat-label">Group</div><div class="stat-val">5 adults &middot; teen &middot; 6yo &middot; 3yo</div></div>
+  <div class="stat"><div class="stat-label">Route</div><div class="stat-val">Dublin &middot; Wicklow &middot; Kilkenny</div></div>
+</div>
+
+<div class="alert">Book the 9-seater van and Dublin hotel now. August is peak season &mdash; both sell out by May.</div>
+
+<div class="log-section">
+  <div class="log-title">Logistics at a glance</div>
+  <table class="log-table">
+    <tr><td class="log-key">Flight</td><td>Aer Lingus Boston Logan &rarr; Dublin direct (~6.5 hrs overnight). Depart eve Aug 5, arrive ~7&ndash;8am Aug 6.</td></tr>
+    <tr><td class="log-key">Van</td><td>9-seater Mercedes Vito or VW Transporter. Book via Europcar/Hertz Dublin Airport. Add 2 child seats (ages 3 &amp; 6).</td></tr>
+    <tr><td class="log-key">Driving</td><td>Left-hand side, narrow roads. Designate one driver. Gets easy after day 1.</td></tr>
+    <tr><td class="log-key">Rooms</td><td>3&ndash;4 rooms per night. A self-catering house in Kilkenny is ideal for the toddler&rsquo;s routine.</td></tr>
+    <tr><td class="log-key">Weather</td><td>15&ndash;19&deg;C (60&ndash;67&deg;F), rain likely. Light waterproof jacket for everyone.</td></tr>
+    <tr><td class="log-key">Pre-Clearance</td><td>Dublin Airport has US Customs pre-clearance &mdash; you clear immigration before boarding. Arrival in Boston is domestic-style.</td></tr>
+  </table>
+</div>
+
+<div class="day-nav" id="nav"></div>
+<div id="panels"></div>
+
+</div>
+
+<script>
+var days = [
+  {
+    date: "Wed Aug 6", name: "Arrive Dublin", color: "#E1F5EE", tc: "#085041",
+    sections: [
+      { head: "Morning &mdash; arrival", acts: [
+        { title: "Land Dublin Airport ~7&ndash;8am", desc: "Collect luggage, pick up the 9-seater van, install child seats. Allow 90 min at the airport for the group.", tags: [] },
+        { title: "Check in, rest", desc: "Hotel may not have rooms ready at 9am. Drop bags and find a nearby caf&eacute;. The 3-year-old will need a nap &mdash; plan around it.", tags: [] }
+      ]},
+      { head: "Afternoon", acts: [
+        { title: "St. Stephen&rsquo;s Green", desc: "27-acre public park in the city center. Toddler-safe, a duck pond, wide paths. Perfect low-key first afternoon &mdash; everyone is tired.", tags: [{l:"great for 3yo + 6yo", c:"t-green"}, {l:"stroller-friendly", c:"t-teal"}] }
+      ]},
+      { head: "Evening", acts: [
+        { title: "Dinner: Baggot Street area", desc: "Avoid Temple Bar on night 1 &mdash; it&rsquo;s loud and touristy. Baggot Street (Doheny &amp; Nesbitt&rsquo;s, O&rsquo;Brien&rsquo;s) is more local, quieter, and genuinely good.", tags: [{l:"pub food", c:"t-amber"}] }
+      ]},
+      { head: "Stay &mdash; 4 nights Dublin", hotel: [
+        { name: "InterContinental Dublin", note: "4-star, Ballsbridge, spacious, easy van parking. Best for large groups.", rec: false },
+        { name: "Clayton Hotel Burlington Road", note: "4-star, central, large hotel easiest for multiple connecting rooms. More affordable.", rec: true },
+        { name: "Large Airbnb townhouse (Ballsbridge/Ranelagh)", note: "Georgian house sleeps 8&ndash;10. One kitchen &mdash; best for the toddler&rsquo;s routine and family meals.", rec: false }
+      ]}
+    ]
+  },
+  {
+    date: "Thu Aug 7", name: "Dublin &mdash; zoo, castle, music", color: "#EEEDFE", tc: "#3C3489",
+    sections: [
+      { head: "Morning", acts: [
+        { title: "Dublin Zoo, Phoenix Park", desc: "One of Europe&rsquo;s best zoos. Wide paved paths, fully stroller-accessible. Plan 3&ndash;4 hours. Picnic lunch in Phoenix Park afterwards &mdash; 1,750 acres of open space.", tags: [{l:"best morning for young kids", c:"t-green"}, {l:"stroller-friendly", c:"t-teal"}] }
+      ]},
+      { head: "Afternoon", acts: [
+        { title: "Dublin Castle", desc: "Historic seat of British rule in Ireland. State apartments tour is 45 min &mdash; good for adults and the teen. The open courtyard is manageable with small kids.", tags: [{l:"history", c:"t-purple"}] },
+        { title: "Optional: Book of Kells, Trinity College", desc: "Pre-book tickets online &mdash; sells out weeks ahead. Adults/teen only; 30 min, worth it.", tags: [{l:"pre-book required", c:"t-red"}] }
+      ]},
+      { head: "Evening", acts: [
+        { title: "Traditional music session", desc: "The Cobblestone (Smithfield) or Mulligan&rsquo;s (Poolbeg St). Sessions start ~9pm &mdash; do dinner first, arrive by 8:30pm to get a table. Genuinely atmospheric, not staged for tourists.", tags: [{l:"live trad music", c:"t-amber"}] }
+      ]}
+    ]
+  },
+  {
+    date: "Fri Aug 8", name: "Day trip &mdash; Wicklow", color: "#E1F5EE", tc: "#085041",
+    sections: [
+      { head: "Morning (45 min from Dublin)", acts: [
+        { title: "Powerscourt Estate &amp; Gardens", desc: "One of Ireland&rsquo;s great formal gardens set against the Wicklow Mountains &mdash; genuinely spectacular. Fully stroller-accessible. Caf&eacute; on site. Allow 2 hours.", tags: [{l:"stroller-friendly", c:"t-teal"}, {l:"gardens", c:"t-green"}] }
+      ]},
+      { head: "Midday (20 min further)", acts: [
+        { title: "Glendalough", desc: "A 6th-century monastic settlement in a glacial valley. The round tower and ruins are ancient and striking. The lakeside walk (1km, flat) is pushchair-friendly. Allow 1.5 hrs.", tags: [{l:"ancient history", c:"t-purple"}, {l:"mountain valley", c:"t-green"}] }
+      ]},
+      { head: "Afternoon &mdash; return to Dublin", acts: [
+        { title: "~1hr drive back, free time", desc: "Rest at hotel. Adults can walk Grafton Street or Merrion Square. Optional evening: Guinness Storehouse for adults/teen (pre-book).", tags: [{l:"optional: Guinness Storehouse", c:"t-amber"}] }
+      ]}
+    ]
+  },
+  {
+    date: "Sat Aug 9", name: "Drive to Kilkenny", color: "#FAEEDA", tc: "#633806",
+    sections: [
+      { head: "Morning &mdash; checkout + drive (~1.5 hrs)", acts: [
+        { title: "M9 motorway south", desc: "Straightforward drive. Optional stop at Kildare Village outlet center if anyone wants a browse &mdash; good plaza with decent coffee.", tags: [] }
+      ]},
+      { head: "Afternoon", acts: [
+        { title: "Kilkenny Castle &amp; Park", desc: "12th-century castle in remarkable condition. The 50-acre parkland behind is excellent for kids &mdash; big open lawns and river walks. Castle tour is ~45 min, good for adults and the teen.", tags: [{l:"castle + grounds", c:"t-purple"}, {l:"kids can run free", c:"t-green"}] }
+      ]},
+      { head: "Evening", acts: [
+        { title: "Medieval Mile &mdash; dinner in Kilkenny", desc: "Walk High St and Parliament St &mdash; best-preserved medieval streetscape in Ireland. Campagne (fine dining, book ahead), Zuni, or Marble City Bar for something more casual.", tags: [{l:"book dinner ahead", c:"t-red"}] }
+      ]},
+      { head: "Stay &mdash; 2 nights Kilkenny", hotel: [
+        { name: "Mount Juliet Estate", note: "Luxury country house 25 min from Callan. Exceptional grounds, spa. The standout stay of the trip. Book immediately.", rec: true },
+        { name: "Kilkenny River Court Hotel", note: "4-star, central, directly on the River Nore opposite the castle. Very family-friendly.", rec: false },
+        { name: "Self-catering farmhouse near Callan", note: "Airbnb farmhouses sleep 8&ndash;12, puts you in the Callan area. Best for the toddler&rsquo;s routine.", rec: false }
+      ]}
+    ]
+  },
+  {
+    date: "Sun Aug 10", name: "Callan + Jerpoint Abbey", color: "#EEEDFE", tc: "#3C3489",
+    sections: [
+      { head: "Morning &mdash; Callan (25 min from Kilkenny)", acts: [
+        { title: "Callan town", desc: "Historic market town. Main sights: Augustinian Friary ruins (15th century) and St. Mary&rsquo;s Church ruins. Walk the main street, find a local caf&eacute;. Small town &mdash; 1.5&ndash;2 hours covers it well.", tags: [{l:"your must-see", c:"t-purple"}] }
+      ]},
+      { head: "Midday &mdash; Jerpoint Abbey (15 min from Callan)", acts: [
+        { title: "Jerpoint Abbey", desc: "Founded 1158, one of the finest Cistercian abbeys in Ireland. Remarkably intact carved cloister arcade. Guided tours are excellent. Outdoor grounds easy with kids. Allow 1.5 hrs. Don&rsquo;t skip this.", tags: [{l:"hidden gem of the trip", c:"t-purple"}, {l:"guided tours available", c:"t-teal"}] }
+      ]},
+      { head: "Afternoon", acts: [
+        { title: "Smithwick&rsquo;s Experience (adults + teen)", desc: "Kilkenny&rsquo;s red ale brewed here since 1710. Tour is 55 min, includes tasting. Adults/teen only &mdash; others walk the Kilkenny design district or relax in the castle park.", tags: [{l:"adults/teen only", c:"t-amber"}] }
+      ]}
+    ]
+  },
+  {
+    date: "Mon Aug 11", name: "Drive back to Dublin", color: "#E1F5EE", tc: "#085041",
+    sections: [
+      { head: "Morning", acts: [
+        { title: "Leisurely checkout", desc: "No rush. If at Mount Juliet, use the grounds in the morning. Leave by midday.", tags: [] }
+      ]},
+      { head: "Midday &mdash; optional stop", acts: [
+        { title: "Irish National Stud &amp; Japanese Gardens, Kildare", desc: "On the M9, ~45 min from Kilkenny. The Japanese garden is world-class and fully stroller-friendly. Horse stud fascinating for all ages. Allow 2 hrs if you stop.", tags: [{l:"stroller-friendly", c:"t-teal"}, {l:"all ages", c:"t-green"}] }
+      ]},
+      { head: "Evening &mdash; last night in Dublin", acts: [
+        { title: "Special farewell dinner", desc: "Merrion Row or Baggot Street area. Peploe&rsquo;s, Dax, or The Shelbourne Saddle Room. Book ahead &mdash; these fill up in August.", tags: [{l:"book ahead", c:"t-red"}] }
+      ]},
+      { head: "Stay &mdash; 1 night Dublin", hotel: [
+        { name: "Same Dublin hotel as nights 1&ndash;4", note: "Book Aug 6&ndash;9 + Aug 11 together. Confirm you can get the same rooms back when booking.", rec: false }
+      ]}
+    ]
+  },
+  {
+    date: "Tue Aug 12", name: "Departure day", color: "#F1EFE8", tc: "#444441",
+    sections: [
+      { head: "Morning", acts: [
+        { title: "Bewley&rsquo;s, Grafton Street", desc: "Final Irish breakfast in the city&rsquo;s most famous caf&eacute;. Then Kilkenny Design Centre on Nassau Street for quality Irish gifts.", tags: [{l:"final morning", c:"t-amber"}] }
+      ]},
+      { head: "Afternoon &mdash; Dublin Airport", acts: [
+        { title: "Transfer and depart", desc: "Allow 90 min from city center. Return the van at the airport. Aer Lingus afternoon flight to Boston Logan.", tags: [] },
+        { title: "US Pre-Clearance", desc: "Dublin Airport has US Customs pre-clearance &mdash; you clear US immigration before boarding. Arrival in Boston is domestic-style, much faster.", tags: [{l:"US pre-clearance at Dublin", c:"t-teal"}] }
+      ]}
+    ]
+  }
+];
+
+var current = 0;
+
+function renderNav() {
+  var nav = document.getElementById('nav');
+  nav.innerHTML = days.map(function(d, i) {
+    return '<button class="day-btn' + (i === current ? ' active' : '') + '" onclick="show(' + i + ')">Day ' + (i+1) + '</button>';
+  }).join('');
+}
+
+function renderPanel() {
+  var d = days[current];
+  var html = '<div class="day-panel"><div class="day-head">';
+  html += '<div class="day-dot" style="background:' + d.color + ';color:' + d.tc + '">' + (current+1) + '</div>';
+  html += '<div class="day-meta"><div class="day-date">' + d.date + '</div><div class="day-name">' + d.name + '</div></div></div>';
+  html += '<div class="day-body">';
+  d.sections.forEach(function(sec) {
+    html += '<div class="section-head">' + sec.head + '</div>';
+    if (sec.acts) {
+      sec.acts.forEach(function(act) {
+        html += '<div class="act"><div class="act-dot" style="background:' + d.tc + '"></div><div style="flex:1">';
+        html += '<div class="act-title">' + act.title + '</div>';
+        html += '<div class="act-desc">' + act.desc + '</div>';
+        if (act.tags && act.tags.length) {
+          html += '<div class="tags">' + act.tags.map(function(t) { return '<span class="tag ' + t.c + '">' + t.l + '</span>'; }).join('') + '</div>';
+        }
+        html += '</div></div>';
+      });
+    }
+    if (sec.hotel) {
+      html += '<div class="hotel-box"><div class="hotel-label">Accommodation options</div>';
+      sec.hotel.forEach(function(h) {
+        html += '<div class="hotel-row"><div class="hotel-name">' + h.name + (h.rec ? '<span class="rec">recommended</span>' : '') + '</div><div class="hotel-note">' + h.note + '</div></div>';
+      });
+      html += '</div>';
+    }
+  });
+  html += '</div></div>';
+  document.getElementById('panels').innerHTML = html;
+}
+
+function show(i) {
+  current = i;
+  renderNav();
+  renderPanel();
+}
+
+renderNav();
+renderPanel();
+</script>
+</body>
+</html>
