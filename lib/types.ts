@@ -40,4 +40,6 @@ export interface Suggestion {
   name: string
   message: string
   created_at: string
+  yes_votes: number
+  no_votes: number
 }

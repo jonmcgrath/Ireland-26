@@ -3,6 +3,26 @@
 import { useState } from 'react'
 import { Suggestion } from '@/lib/types'
 
+function getVotedKey(id: string) { return `voted_${id}` }
+
+function VoteBar({ yes, no }: { yes: number; no: number }) {
+  const total = yes + no
+  if (total === 0) return null
+  const yesPct = Math.round((yes / total) * 100)
+  const noPct = 100 - yesPct
+  return (
+    <div className="mt-2 flex items-center gap-2">
+      <div className="flex-1 h-1.5 bg-gray-100 rounded-full overflow-hidden flex">
+        {yes > 0 && <div className="bg-emerald-400 h-full transition-all" style={{ width: `${yesPct}%` }} />}
+        {no > 0 && <div className="bg-red-400 h-full transition-all" style={{ width: `${noPct}%` }} />}
+      </div>
+      <span className="text-xs text-gray-400 whitespace-nowrap flex-shrink-0">
+        {yes} yes · {no} no
+      </span>
+    </div>
+  )
+}
+
 interface Props {
   dayIndex: number
   activityTitles: string[]
@@ -29,6 +49,26 @@ export default function SuggestionsSection({ dayIndex, activityTitles, suggestio
   const [activityTitle, setActivityTitle] = useState('')
   const [submitting, setSubmitting] = useState(false)
   const [error, setError] = useState('')
+  const [localSuggestions, setLocalSuggestions] = useState(suggestions)
+
+  function hasVoted(id: string) {
+    try { return !!localStorage.getItem(getVotedKey(id)) } catch { return false }
+  }
+
+  async function handleVote(id: string, vote: 'yes' | 'no') {
+    if (hasVoted(id)) return
+    try {
+      localStorage.setItem(getVotedKey(id), vote)
+    } catch { /* ignore */ }
+    setLocalSuggestions(prev => prev.map(s =>
+      s.id === id ? { ...s, yes_votes: s.yes_votes + (vote === 'yes' ? 1 : 0), no_votes: s.no_votes + (vote === 'no' ? 1 : 0) } : s
+    ))
+    await fetch('/api/vote', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ id, vote }),
+    })
+  }
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
@@ -47,6 +87,7 @@ export default function SuggestionsSection({ dayIndex, activityTitles, suggestio
       if (!res.ok) throw new Error()
       const suggestion = await res.json()
       onNewSuggestion(suggestion)
+      setLocalSuggestions(prev => [...prev, suggestion])
       setName('')
       setMessage('')
       setActivityTitle('')
@@ -79,28 +120,56 @@ export default function SuggestionsSection({ dayIndex, activityTitles, suggestio
         )}
       </div>
 
-      {suggestions.length === 0 && !showForm && (
+      {localSuggestions.length === 0 && !showForm && (
         <p className="text-sm text-gray-400 italic">
           No suggestions yet — be the first to share your thoughts.
         </p>
       )}
 
-      {suggestions.length > 0 && (
+      {localSuggestions.length > 0 && (
         <div className="space-y-2 mb-3">
-          {suggestions.map(s => (
-            <div key={s.id} className="bg-stone-50 rounded-lg p-3 border border-stone-100">
-              <div className="flex items-baseline gap-2 flex-wrap mb-1">
-                <span className="text-sm font-semibold text-gray-900">{s.name}</span>
-                {s.activity_title && (
-                  <span className="text-xs bg-emerald-50 text-emerald-700 px-2 py-0.5 rounded-full border border-emerald-100">
-                    re: {s.activity_title}
-                  </span>
-                )}
-                <span className="text-xs text-gray-400 ml-auto">{timeAgo(s.created_at)}</span>
+          {localSuggestions.map(s => {
+            const voted = hasVoted(s.id)
+            return (
+              <div key={s.id} className="bg-stone-50 rounded-lg p-3 border border-stone-100">
+                <div className="flex items-baseline gap-2 flex-wrap mb-1">
+                  <span className="text-sm font-semibold text-gray-900">{s.name}</span>
+                  {s.activity_title && (
+                    <span className="text-xs bg-emerald-50 text-emerald-700 px-2 py-0.5 rounded-full border border-emerald-100">
+                      re: {s.activity_title}
+                    </span>
+                  )}
+                  <span className="text-xs text-gray-400 ml-auto">{timeAgo(s.created_at)}</span>
+                </div>
+                <p className="text-sm text-gray-700 leading-relaxed">{s.message}</p>
+                <div className="flex items-center gap-2 mt-2">
+                  <button
+                    onClick={() => handleVote(s.id, 'yes')}
+                    disabled={voted}
+                    className={`flex items-center gap-1 text-xs px-2.5 py-1 rounded-full border font-medium transition-colors ${
+                      voted
+                        ? 'border-gray-200 text-gray-400 cursor-default'
+                        : 'border-emerald-200 text-emerald-700 hover:bg-emerald-50'
+                    }`}
+                  >
+                    👍 Yes {s.yes_votes > 0 && <span>{s.yes_votes}</span>}
+                  </button>
+                  <button
+                    onClick={() => handleVote(s.id, 'no')}
+                    disabled={voted}
+                    className={`flex items-center gap-1 text-xs px-2.5 py-1 rounded-full border font-medium transition-colors ${
+                      voted
+                        ? 'border-gray-200 text-gray-400 cursor-default'
+                        : 'border-red-200 text-red-600 hover:bg-red-50'
+                    }`}
+                  >
+                    👎 No {s.no_votes > 0 && <span>{s.no_votes}</span>}
+                  </button>
+                </div>
+                <VoteBar yes={s.yes_votes} no={s.no_votes} />
               </div>
-              <p className="text-sm text-gray-700 leading-relaxed">{s.message}</p>
-            </div>
-          ))}
+            )
+          })}
         </div>
       )}
 
