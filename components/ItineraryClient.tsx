@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Day, DayColor, Suggestion } from '@/lib/types'
 import DayCard from './DayCard'
 
@@ -22,13 +22,19 @@ const logistics = [
 
 interface Props {
   days: Day[]
-  initialSuggestions: Suggestion[]
 }
 
-export default function ItineraryClient({ days, initialSuggestions }: Props) {
+export default function ItineraryClient({ days }: Props) {
   const [activeDay, setActiveDay] = useState(0)
-  const [suggestions, setSuggestions] = useState(initialSuggestions)
+  const [suggestions, setSuggestions] = useState<Suggestion[]>([])
   const [showLogistics, setShowLogistics] = useState(false)
+
+  useEffect(() => {
+    fetch('/api/suggestions')
+      .then(r => r.json())
+      .then(data => setSuggestions(data))
+      .catch(() => {})
+  }, [])
 
   function handleNewSuggestion(s: Suggestion) {
     setSuggestions(prev => [...prev, s])
