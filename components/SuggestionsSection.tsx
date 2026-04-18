@@ -49,7 +49,13 @@ export default function SuggestionsSection({ dayIndex, activityTitles, suggestio
   const [activityTitle, setActivityTitle] = useState('')
   const [submitting, setSubmitting] = useState(false)
   const [error, setError] = useState('')
-  const [localSuggestions, setLocalSuggestions] = useState(suggestions)
+  const [voteOverrides, setVoteOverrides] = useState<Record<string, { yes: number; no: number }>>({})
+
+  const localSuggestions = suggestions.map(s => ({
+    ...s,
+    yes_votes: (s.yes_votes ?? 0) + (voteOverrides[s.id]?.yes ?? 0),
+    no_votes: (s.no_votes ?? 0) + (voteOverrides[s.id]?.no ?? 0),
+  }))
 
   function hasVoted(id: string) {
     try { return !!localStorage.getItem(getVotedKey(id)) } catch { return false }
@@ -57,12 +63,14 @@ export default function SuggestionsSection({ dayIndex, activityTitles, suggestio
 
   async function handleVote(id: string, vote: 'yes' | 'no') {
     if (hasVoted(id)) return
-    try {
-      localStorage.setItem(getVotedKey(id), vote)
-    } catch { /* ignore */ }
-    setLocalSuggestions(prev => prev.map(s =>
-      s.id === id ? { ...s, yes_votes: s.yes_votes + (vote === 'yes' ? 1 : 0), no_votes: s.no_votes + (vote === 'no' ? 1 : 0) } : s
-    ))
+    try { localStorage.setItem(getVotedKey(id), vote) } catch { /* ignore */ }
+    setVoteOverrides(prev => ({
+      ...prev,
+      [id]: {
+        yes: (prev[id]?.yes ?? 0) + (vote === 'yes' ? 1 : 0),
+        no: (prev[id]?.no ?? 0) + (vote === 'no' ? 1 : 0),
+      }
+    }))
     await fetch('/api/vote', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -87,7 +95,6 @@ export default function SuggestionsSection({ dayIndex, activityTitles, suggestio
       if (!res.ok) throw new Error()
       const suggestion = await res.json()
       onNewSuggestion(suggestion)
-      setLocalSuggestions(prev => [...prev, suggestion])
       setName('')
       setMessage('')
       setActivityTitle('')
