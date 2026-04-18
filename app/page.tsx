@@ -9,13 +9,14 @@ export default async function HomePage() {
   let suggestions: Suggestion[] = []
   try {
     const supabase = getSupabase()
-    const { data } = await supabase
+    const { data, error } = await supabase
       .from('suggestions')
       .select('*')
       .order('created_at', { ascending: true })
+    if (error) console.error('Supabase SELECT error:', error)
     suggestions = data ?? []
-  } catch {
-    // Supabase not configured yet — show empty suggestions
+  } catch (e) {
+    console.error('Supabase connection error:', e)
   }
 
   return <ItineraryClient days={days} initialSuggestions={suggestions} />
