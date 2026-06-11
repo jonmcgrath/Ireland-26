@@ -308,7 +308,7 @@ export const days: Day[] = [
         acts: [
           {
             title: 'Transfer and depart',
-            desc: 'Allow 90 min from city center. Return the van at the airport. Aer Lingus afternoon flight to Boston Logan.',
+            desc: 'Allow 90 min from city center. Return the van at the airport. All four on JetBlue B6 0354 departing 10:40am.',
             tags: [],
           },
           {

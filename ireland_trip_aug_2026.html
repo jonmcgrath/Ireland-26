@@ -441,4 +441,40 @@ function renderPanel() {
     html += '<a class="nav-btn nav-waze" href="' + d.nav.waze + '" target="_blank">&#128663; Waze</a>';
     html += '</div>';
   }
-  html += '<div class="day-bo
+  html += '<div class="day-body">';
+  d.sections.forEach(function(sec) {
+    html += '<div class="section-head">' + sec.head + '</div>';
+    if (sec.acts) {
+      sec.acts.forEach(function(act) {
+        html += '<div class="act"><div class="act-dot" style="background:' + d.tc + '"></div><div style="flex:1">';
+        html += '<div class="act-title">' + act.title + '</div>';
+        html += '<div class="act-desc">' + act.desc + '</div>';
+        if (act.tags && act.tags.length) {
+          html += '<div class="tags">' + act.tags.map(function(t) { return '<span class="tag ' + t.c + '">' + t.l + '</span>'; }).join('') + '</div>';
+        }
+        html += '</div></div>';
+      });
+    }
+    if (sec.hotel) {
+      html += '<div class="hotel-box"><div class="hotel-label">Accommodation options</div>';
+      sec.hotel.forEach(function(h) {
+        html += '<div class="hotel-row"><div class="hotel-name">' + h.name + (h.rec ? '<span class="rec">recommended</span>' : '') + '</div><div class="hotel-note">' + h.note + '</div></div>';
+      });
+      html += '</div>';
+    }
+  });
+  html += '</div></div>';
+  document.getElementById('panels').innerHTML = html;
+}
+
+function show(i) {
+  current = i;
+  renderNav();
+  renderPanel();
+}
+
+renderNav();
+renderPanel();
+</script>
+</body>
+</html>
