@@ -47,38 +47,22 @@ export default function ItineraryClient({ days }: Props) {
   }
 
   const daySuggestions = suggestions.filter(s => s.day_index === activeDay)
-  const totalSuggestions = suggestions.length
 
   return (
     <div className="min-h-screen">
       {/* Header */}
-      <header className="bg-gradient-to-br from-[#0c4a2e] via-[#115c38] to-[#0e5233]">
-        <div className="max-w-3xl mx-auto px-4 pt-10 pb-8">
-          <p className="text-emerald-400 text-xs font-semibold uppercase tracking-widest mb-3">Family Trip · Aug 2026</p>
-          <h1 className="text-4xl font-bold text-white mb-1 tracking-tight">Ireland</h1>
-          <p className="text-emerald-200 text-base">Boston to Dublin · 8 people · 7 days</p>
-
-          <div className="mt-6 grid grid-cols-3 gap-3">
-            {[
-              { label: 'Dates', val: 'Aug 5 eve – Aug 12' },
-              { label: 'Group', val: '5 adults · teen · 6yo · 3yo' },
-              { label: 'Route', val: 'Kilkenny · Killarney · Dublin' },
-            ].map(stat => (
-              <div key={stat.label} className="bg-white/10 rounded-xl px-3 py-3">
-                <div className="text-emerald-300 text-xs font-medium uppercase tracking-wide">{stat.label}</div>
-                <div className="text-white text-sm font-medium mt-0.5 leading-snug">{stat.val}</div>
-              </div>
-            ))}
-          </div>
-
-          {totalSuggestions > 0 && (
-            <div className="mt-4 inline-flex items-center gap-2 bg-white/10 rounded-full px-3 py-1.5">
-              <span className="w-2 h-2 rounded-full bg-emerald-400" />
-              <span className="text-emerald-200 text-xs font-medium">
-                {totalSuggestions} family suggestion{totalSuggestions !== 1 ? 's' : ''} posted
-              </span>
-            </div>
-          )}
+      <header className="relative min-h-[380px] flex items-center justify-center overflow-hidden">
+        <div
+          className="absolute inset-0 bg-cover bg-center scale-125 blur-2xl brightness-75"
+          style={{ backgroundImage: "url('/hero.jpg')" }}
+          aria-hidden="true"
+        />
+        <div
+          className="absolute inset-0 bg-contain bg-top bg-no-repeat"
+          style={{ backgroundImage: "url('/hero.jpg')" }}
+        />
+        <div className="relative w-3/4 max-w-2xl bg-emerald-950/40 backdrop-blur-sm rounded-2xl px-6 py-8 text-center">
+          <h1 className="text-4xl sm:text-5xl font-bold text-white tracking-tight">Ireland August 2026</h1>
         </div>
       </header>
 
