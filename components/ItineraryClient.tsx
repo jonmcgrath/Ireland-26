@@ -2,20 +2,25 @@
 
 import { useState, useEffect } from 'react'
 import { Day, DayColor, Suggestion } from '@/lib/types'
+import { reservationsAlert } from '@/lib/reservations'
 import DayCard from './DayCard'
+import ReservationsSection from './ReservationsSection'
 
 const tabColors: Record<DayColor, { active: string; inactive: string }> = {
   green:  { active: 'bg-emerald-700 text-white border-emerald-700', inactive: 'text-gray-600 border-gray-200 hover:border-emerald-300 hover:text-emerald-700' },
   purple: { active: 'bg-violet-600 text-white border-violet-600',   inactive: 'text-gray-600 border-gray-200 hover:border-violet-300 hover:text-violet-600' },
   amber:  { active: 'bg-amber-600 text-white border-amber-600',     inactive: 'text-gray-600 border-gray-200 hover:border-amber-300 hover:text-amber-600' },
   gray:   { active: 'bg-slate-500 text-white border-slate-500',     inactive: 'text-gray-600 border-gray-200 hover:border-slate-300 hover:text-slate-500' },
+  teal:   { active: 'bg-teal-700 text-white border-teal-700',       inactive: 'text-gray-600 border-gray-200 hover:border-teal-300 hover:text-teal-700' },
 }
 
 const logistics = [
-  { key: 'Flight', val: 'Aer Lingus Boston Logan → Dublin direct (~6.5 hrs overnight). Depart eve Aug 5, arrive ~7–8am Aug 6.' },
-  { key: 'Van', val: '9-seater Mercedes Vito or VW Transporter. Book via Europcar/Hertz Dublin Airport. Add 2 child seats (ages 3 & 6).' },
-  { key: 'Driving', val: 'Left-hand side, narrow roads. Designate one driver. Gets easy after day 1.' },
-  { key: 'Rooms', val: "3–4 rooms per night. A self-catering house in Kilkenny is ideal for the toddler's routine." },
+  { key: 'Outbound', val: 'JetBlue B6 0353 — Boston Logan (Terminal C) departs Wed Aug 5, 9:08pm → Dublin arrives Thu Aug 6, 8:20am. Confs: NWSGVS (Jon, seat 6A Mint), OULTKT (Linda, seat 6F Mint), OTIGHJ (Kinsley seat 22D & Britt seat 22E).' },
+  { key: 'Return', val: 'JetBlue B6 0354 — Dublin Terminal 2, departs Wed Aug 12, 10:40am → Boston Logan 12:50pm. Jon seat 26C (conf NWSGVS), Linda seat 26B (conf OULTKT), Kinsley seat 26D & Britt seat 26E (conf OTIGHJ).' },
+  { key: 'Van (Jon)', val: 'Alamo at Dublin Airport (via RentalCars.com). Ford Tourneo Custom 9-seater or similar. Conf #2110350632, voucher 741804900. Pick-up Aug 6, 10:30am. Drop-off Aug 12, 7:30am.' },
+  { key: 'Car (Ashley)', val: 'Alamo at Dublin Airport (via Booking.com). Skoda Kodiaq or similar. Ref 729729134. Pick-up Aug 6, 10:30am. Drop-off Aug 12, 7:30am. RentalCover insurance: YXHA-RWPY-INS.' },
+  { key: 'Driving', val: 'Left-hand side, narrow roads — especially between Kilkenny and Killarney. Designate drivers in advance. Gets natural after day 1.' },
+  { key: 'Rooms', val: '2 nights Kilkenny Ormonde (Aug 6–8) · 3 nights Lake Hotel Killarney (Aug 8–11) · 1 night Clontarf Castle Dublin (Aug 11–12).' },
   { key: 'Weather', val: '15–19°C (60–67°F), rain likely. Light waterproof jacket for everyone.' },
   { key: 'Pre-Clearance', val: 'Dublin Airport has US Customs pre-clearance — you clear immigration before boarding. Arrival in Boston is domestic-style.' },
 ]
@@ -28,6 +33,7 @@ export default function ItineraryClient({ days }: Props) {
   const [activeDay, setActiveDay] = useState(0)
   const [suggestions, setSuggestions] = useState<Suggestion[]>([])
   const [showLogistics, setShowLogistics] = useState(false)
+  const [showReservations, setShowReservations] = useState(false)
 
   useEffect(() => {
     fetch('/api/suggestions')
@@ -56,7 +62,7 @@ export default function ItineraryClient({ days }: Props) {
             {[
               { label: 'Dates', val: 'Aug 5 eve – Aug 12' },
               { label: 'Group', val: '5 adults · teen · 6yo · 3yo' },
-              { label: 'Route', val: 'Dublin · Wicklow · Kilkenny' },
+              { label: 'Route', val: 'Kilkenny · Killarney · Dublin' },
             ].map(stat => (
               <div key={stat.label} className="bg-white/10 rounded-xl px-3 py-3">
                 <div className="text-emerald-300 text-xs font-medium uppercase tracking-wide">{stat.label}</div>
@@ -80,9 +86,7 @@ export default function ItineraryClient({ days }: Props) {
       <div className="bg-amber-50 border-b border-amber-200">
         <div className="max-w-3xl mx-auto px-4 py-3 flex gap-3 items-start">
           <span className="text-amber-500 mt-0.5 flex-shrink-0 text-base">⚠</span>
-          <p className="text-sm text-amber-800">
-            <strong>Book now:</strong> the 9-seater van and Dublin hotel. August is peak season — both sell out by May.
-          </p>
+          <p className="text-sm text-amber-800">{reservationsAlert}</p>
         </div>
       </div>
 
@@ -106,6 +110,22 @@ export default function ItineraryClient({ days }: Props) {
                   </div>
                 ))}
               </dl>
+            </div>
+          )}
+        </div>
+
+        {/* Reservations toggle */}
+        <div className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+          <button
+            onClick={() => setShowReservations(v => !v)}
+            className="w-full flex items-center justify-between px-5 py-4 text-left hover:bg-gray-50 transition-colors"
+          >
+            <span className="text-sm font-semibold text-gray-900">Reservations &amp; confirmations</span>
+            <span className="text-gray-400 text-sm">{showReservations ? '▲ Hide' : '▼ Show'}</span>
+          </button>
+          {showReservations && (
+            <div className="border-t border-gray-50 px-5 pt-4 pb-4">
+              <ReservationsSection />
             </div>
           )}
         </div>

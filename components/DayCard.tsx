@@ -6,6 +6,7 @@ const colorStyles: Record<DayColor, { border: string; badge: string; dot: string
   purple: { border: 'border-l-violet-500',  badge: 'bg-violet-600 text-white',  dot: 'bg-violet-500',  head: 'text-violet-600' },
   amber:  { border: 'border-l-amber-500',   badge: 'bg-amber-600 text-white',   dot: 'bg-amber-500',   head: 'text-amber-700' },
   gray:   { border: 'border-l-slate-400',   badge: 'bg-slate-500 text-white',   dot: 'bg-slate-400',   head: 'text-slate-500' },
+  teal:   { border: 'border-l-teal-500',    badge: 'bg-teal-700 text-white',    dot: 'bg-teal-500',    head: 'text-teal-700' },
 }
 
 const tagStyles: Record<TagColor, string> = {
@@ -42,6 +43,19 @@ export default function DayCard({ day, dayIndex, suggestions, onNewSuggestion }:
           <div className="text-lg font-semibold text-gray-900">{day.name}</div>
         </div>
       </div>
+
+      {/* Nav links for driving days */}
+      {day.nav && (
+        <div className="px-5 py-3 border-b border-gray-50 bg-stone-50 flex flex-wrap items-center gap-2">
+          <span className="text-xs text-gray-500 flex-1 min-w-[140px]">📍 {day.nav.label}</span>
+          <a href={day.nav.gmaps} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-xs font-medium px-3 py-1.5 rounded-md bg-blue-50 text-blue-700 border border-blue-200 hover:bg-blue-100 transition-colors">
+            🌍 Google Maps
+          </a>
+          <a href={day.nav.waze} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-xs font-medium px-3 py-1.5 rounded-md bg-emerald-50 text-emerald-800 border border-emerald-200 hover:bg-emerald-100 transition-colors">
+            🚗 Waze
+          </a>
+        </div>
+      )}
 
       {/* Day body */}
       <div className="px-5 py-4">

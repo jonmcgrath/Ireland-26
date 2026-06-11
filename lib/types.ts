@@ -1,5 +1,5 @@
 export type TagColor = 'green' | 'purple' | 'amber' | 'red' | 'teal'
-export type DayColor = 'green' | 'purple' | 'amber' | 'gray'
+export type DayColor = 'green' | 'purple' | 'amber' | 'gray' | 'teal'
 
 export interface Tag {
   label: string
@@ -26,10 +26,17 @@ export interface Section {
   hotel?: HotelOption[]
 }
 
+export interface DayNav {
+  label: string
+  gmaps: string
+  waze: string
+}
+
 export interface Day {
   date: string
   name: string
   color: DayColor
+  nav?: DayNav
   sections: Section[]
 }
 
