@@ -73,7 +73,7 @@ export const hotelReservation = {
       status: 'Modified May 9',
       statusType: 'modified',
       link: 'https://www.kilkennyormonde.com',
-      note: 'Booker: Jonathan McGrath · Cc: Kinsley (EYIJGC9), Ashley Macielak (17T115B)',
+      note: 'Booker: Jonathan McGrath · Cc: Kinsley (EYIJGC9), Ashley Macielak (17T115B) · Early check-in 1pm added May 9 for EYIJGC9 & 9PNDG1R (+€30 ea.) — 17T115B still 4pm',
       refs: ['EYIJGC9', '17T115B', '9PNDG1R'],
     },
     {

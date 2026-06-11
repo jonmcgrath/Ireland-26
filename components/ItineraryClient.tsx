@@ -61,9 +61,6 @@ export default function ItineraryClient({ days }: Props) {
           className="absolute inset-0 bg-contain bg-top bg-no-repeat"
           style={{ backgroundImage: "url('/hero.jpg')" }}
         />
-        <div className="relative w-3/4 max-w-2xl bg-emerald-950/40 backdrop-blur-sm rounded-2xl px-6 py-8 text-center">
-          <h1 className="text-4xl sm:text-5xl font-bold text-white tracking-tight">Ireland August 2026</h1>
-        </div>
       </header>
 
       {/* Alert */}

@@ -31,8 +31,8 @@ export const days: Day[] = [
         acts: [
           {
             title: 'Kilkenny Ormonde Hotel',
-            desc: 'Official check-in at 4pm. Arrive ~noon — hotel holds luggage. Drop bags, let the toddler nap, everyone gets a reset before the afternoon.',
-            tags: [{ label: '4pm check-in', color: 'amber' }],
+            desc: "Early check-in from 1pm confirmed for Jon's Deluxe King (9PNDG1R) and Kinsley's room (EYIJGC9, +€30 each). Alex/Ashley's Superior room (17T115B) is still 4pm — if arriving as a group around 1pm, the hotel will hold that bag until 4pm. Drop bags, let the toddler nap, everyone gets a reset before the afternoon.",
+            tags: [{ label: '1pm check-in (2 of 3 rooms)', color: 'amber' }],
           },
           {
             title: 'Kilkenny Castle & Park',
