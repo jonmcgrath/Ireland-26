@@ -51,6 +51,37 @@ h1 { font-size: 22px; font-weight: 500; margin-bottom: 4px; }
 .log-table td { padding: 6px 0; border-bottom: 1px solid #e5e5e2; vertical-align: top; }
 .log-table tr:last-child td { border-bottom: none; }
 .log-key { color: #888; width: 110px; }
+.res-table { width: 100%; font-size: 13px; border-collapse: collapse; }
+.res-table th { text-align: left; font-size: 11px; text-transform: uppercase; letter-spacing: 0.07em; color: #999; font-weight: 500; padding: 6px 8px 6px 0; border-bottom: 1px solid #e5e5e2; }
+.res-table td { padding: 8px 8px 8px 0; border-bottom: 1px solid #e5e5e2; vertical-align: top; }
+.res-table tr:last-child td { border-bottom: none; }
+.res-hotel { font-weight: 500; color: #1a1a1a; }
+.res-loc { font-size: 12px; color: #666; }
+.res-ref { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; background: #eeede8; padding: 2px 6px; border-radius: 4px; color: #333; }
+.res-note { font-size: 12px; color: #666; }
+.res-status { font-size: 11px; padding: 2px 8px; border-radius: 20px; display: inline-block; }
+.s-confirmed { background: #EAF3DE; color: #27500A; }
+.s-modified { background: #FAEEDA; color: #633806; }
+.confirmed-box { background: #EAF3DE; border-left: 3px solid #27500A; padding: 8px 12px; margin-top: 10px; border-radius: 4px; font-size: 12px; color: #27500A; }
+.res-sections { display: flex; flex-direction: column; gap: 10px; margin-bottom: 14px; }
+.res-block { background: #fff; border: 1px solid #e5e5e2; border-radius: 12px; overflow: hidden; }
+.res-block-head { display: flex; align-items: center; gap: 12px; padding: 12px 16px 0; }
+.res-section-badge { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; padding: 3px 10px; border-radius: 20px; }
+.badge-air { background: #E1F5EE; color: #085041; }
+.badge-car { background: #FAEEDA; color: #633806; }
+.badge-hotel { background: #EEEDFE; color: #3C3489; }
+.res-block-sub { font-size: 12px; color: #888; margin-top: 1px; }
+.res-block-body { padding: 10px 16px 14px; }
+.res-link { color: #0F6E56; text-decoration: none; font-weight: 500; }
+.res-link:hover { text-decoration: underline; }
+.res-sub-row td { background: #f9f9f7; font-size: 11px; text-transform: uppercase; letter-spacing: .07em; color: #aaa; padding: 6px 0 4px !important; border-bottom: none !important; }
+.nav-bar { display: flex; align-items: center; gap: 8px; padding: 9px 16px; background: #f5f5f3; border-bottom: 1px solid #e5e5e2; flex-wrap: wrap; }
+.nav-label { font-size: 12px; color: #666; flex: 1; min-width: 120px; }
+.nav-btn { display: inline-flex; align-items: center; gap: 5px; padding: 5px 12px; border-radius: 6px; font-size: 12px; font-weight: 500; text-decoration: none; white-space: nowrap; }
+.nav-gmaps { background: #E8F0FE; color: #1a73e8; border: 1px solid #c5d8fc; }
+.nav-gmaps:hover { background: #d2e3fc; }
+.nav-waze { background: #EAF3DE; color: #27500A; border: 1px solid #b5d98a; }
+.nav-waze:hover { background: #d4ecba; }
 </style>
 </head>
 <body>
@@ -62,18 +93,185 @@ h1 { font-size: 22px; font-weight: 500; margin-bottom: 4px; }
 <div class="trip-header">
   <div class="stat"><div class="stat-label">Dates</div><div class="stat-val">Aug 5 eve &mdash; Aug 12</div></div>
   <div class="stat"><div class="stat-label">Group</div><div class="stat-val">5 adults &middot; teen &middot; 6yo &middot; 3yo</div></div>
-  <div class="stat"><div class="stat-label">Route</div><div class="stat-val">Dublin &middot; Wicklow &middot; Kilkenny</div></div>
+  <div class="stat"><div class="stat-label">Route</div><div class="stat-val">Kilkenny &middot; Killarney &middot; Dublin</div></div>
 </div>
 
-<div class="alert">Book the 9-seater van and Dublin hotel now. August is peak season &mdash; both sell out by May.</div>
+<div class="alert">All hotels and cars confirmed. Still to arrange: dinner reservations at Lake Hotel (Aug 9&ndash;10 evenings) and a farewell dinner in Dublin (Aug 11). Lake Hotel all 3 rooms confirmed: 265427 (Twin/Double, 2 guests), 265428 (Twin/Double, 2 guests), 265429 (Triple, 4 guests).Clontarf Castle: BX2KQZB is the group booking ref; 353149321/323/574 are individual room confirmations &mdash; not duplicates, all valid.</div>
+
+<div class="res-sections">
+
+  <!-- AIR -->
+  <div class="res-block">
+    <div class="res-block-head">
+      <span class="res-section-badge badge-air">✈ Air</span>
+      <div class="res-block-sub">JetBlue B6 0353 outbound (Aug 5) &middot; JetBlue B6 0354 return (Aug 12)</div>
+    </div>
+    <div class="res-block-body">
+      <table class="res-table">
+        <thead>
+          <tr><th style="width:140px">Passenger</th><th>Flight &amp; Seat</th><th style="width:90px">Confirmation</th></tr>
+        </thead>
+        <tbody>
+          <tr class="res-sub-row"><td colspan="3">Outbound &mdash; JetBlue B6 0353 &middot; Wed Aug 5, 9:08pm BOS (Terminal C) &rarr; Thu Aug 6, 8:20am DUB</td></tr>
+          <tr>
+            <td class="res-hotel">Jon McGrath</td>
+            <td><a href="https://www.jetblue.com/manage-trips" target="_blank" class="res-link">JetBlue B6 0353</a> &middot; Seat 6A Mint</td>
+            <td><span class="res-ref">NWSGVS</span></td>
+          </tr>
+          <tr>
+            <td class="res-hotel">Linda McGrath</td>
+            <td><a href="https://www.jetblue.com/manage-trips" target="_blank" class="res-link">JetBlue B6 0353</a> &middot; Seat 6F Mint</td>
+            <td><span class="res-ref">OULTKT</span></td>
+          </tr>
+          <tr>
+            <td class="res-hotel">Kinsley Minella</td>
+            <td><a href="https://www.jetblue.com/manage-trips" target="_blank" class="res-link">JetBlue B6 0353</a> &middot; Seat 22D</td>
+            <td><span class="res-ref">OTIGHJ</span></td>
+          </tr>
+          <tr>
+            <td class="res-hotel">Britt Minella</td>
+            <td><a href="https://www.jetblue.com/manage-trips" target="_blank" class="res-link">JetBlue B6 0353</a> &middot; Seat 22E</td>
+            <td><span class="res-ref">OTIGHJ</span></td>
+          </tr>
+          <tr class="res-sub-row"><td colspan="3">Return &mdash; JetBlue B6 0354 &middot; Wed Aug 12, 10:40am DUB &rarr; 12:50pm BOS &middot; Terminal 2 Dublin</td></tr>
+          <tr>
+            <td class="res-hotel">Jon McGrath</td>
+            <td><a href="https://www.jetblue.com/manage-trips" target="_blank" class="res-link">JetBlue B6 0354</a> &middot; Seat 26C &middot; departs 10:40am</td>
+            <td><span class="res-ref">NWSGVS</span></td>
+          </tr>
+          <tr>
+            <td class="res-hotel">Linda McGrath</td>
+            <td><a href="https://www.jetblue.com/manage-trips" target="_blank" class="res-link">JetBlue B6 0354</a> &middot; Seat 26B &middot; departs 10:40am</td>
+            <td><span class="res-ref">OULTKT</span></td>
+          </tr>
+          <tr>
+            <td class="res-hotel">Kinsley Minella</td>
+            <td><a href="https://www.jetblue.com/manage-trips" target="_blank" class="res-link">JetBlue B6 0354</a> &middot; Seat 26D &middot; departs 10:40am</td>
+            <td><span class="res-ref">OTIGHJ</span></td>
+          </tr>
+          <tr>
+            <td class="res-hotel">Britt Minella</td>
+            <td><a href="https://www.jetblue.com/manage-trips" target="_blank" class="res-link">JetBlue B6 0354</a> &middot; Seat 26E &middot; departs 10:40am</td>
+            <td><span class="res-ref">OTIGHJ</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- CAR -->
+  <div class="res-block">
+    <div class="res-block-head">
+      <span class="res-section-badge badge-car">&#9642; Car</span>
+      <div class="res-block-sub">2 vehicles &middot; Alamo Dublin Airport &middot; Aug 6 pick-up 10:30am &mdash; Aug 12 drop-off 7:30am</div>
+    </div>
+    <div class="res-block-body">
+      <table class="res-table">
+        <thead>
+          <tr><th style="width:140px">Driver</th><th>Vehicle &amp; Booking</th><th style="width:110px">Reference</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="res-hotel">Jon McGrath</td>
+            <td>
+              <a href="https://www.alamo.com/en/manage-reservation.html" target="_blank" class="res-link">Alamo &middot; Ford Tourneo Custom 9-seater</a>
+              <div class="res-note">via RentalCars.com &middot; Voucher 741804900</div>
+            </td>
+            <td><span class="res-ref">2110350632</span></td>
+          </tr>
+          <tr>
+            <td class="res-hotel">Ashley Macielak</td>
+            <td>
+              <a href="https://www.alamo.com/en/manage-reservation.html" target="_blank" class="res-link">Alamo &middot; Skoda Kodiaq</a>
+              <div class="res-note">via Booking.com &middot; RentalCover ins. YXHA-RWPY-INS</div>
+            </td>
+            <td><span class="res-ref">729729134</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- HOTEL -->
+  <div class="res-block">
+    <div class="res-block-head">
+      <span class="res-section-badge badge-hotel">&#9632; Hotel</span>
+      <div class="res-block-sub">3 properties &middot; 6 nights &middot; Kilkenny &rarr; Killarney &rarr; Dublin</div>
+    </div>
+    <div class="res-block-body">
+      <table class="res-table">
+        <thead>
+          <tr><th style="width:160px">Hotel</th><th>Details</th><th style="width:110px">Confirmation(s)</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <div class="res-hotel">Kilkenny Ormonde</div>
+              <div class="res-loc">Kilkenny &middot; Aug 6&ndash;8 &middot; 2 nights &middot; 3 rooms</div>
+              <span class="res-status s-modified" style="margin-top:4px;display:inline-block">Modified May 9</span>
+            </td>
+            <td>
+              <a href="https://www.kilkennyormonde.com" target="_blank" class="res-link">Kilkenny Ormonde Hotel</a>
+              <div class="res-note" style="margin-top:3px">Booker: Jonathan McGrath &middot; Cc: Kinsley (EYIJGC9), Ashley Macielak (17T115B)</div>
+            </td>
+            <td>
+              <span class="res-ref">EYIJGC9</span>
+              <span class="res-ref" style="display:block;margin-top:3px">17T115B</span>
+              <span class="res-ref" style="display:block;margin-top:3px">9PNDG1R</span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="res-hotel">The Lake Hotel</div>
+              <div class="res-loc">Killarney &middot; Aug 8&ndash;11 &middot; 3 nights &middot; 3 rooms</div>
+              <span class="res-status s-confirmed" style="margin-top:4px;display:inline-block">Confirmed May 6</span>
+            </td>
+            <td>
+              <a href="https://www.lakehotel.ie" target="_blank" class="res-link">The Lake Hotel</a>
+              <div class="res-note" style="margin-top:3px">Booker: Ashley Macielak &middot; B&amp;B &middot; 265427 &amp; 265428: Deluxe Lakeview Twin/Double (2 guests ea.) &middot; 265429: Deluxe Triple (4 guests, &euro;1,007)</div>
+            </td>
+            <td>
+              <span class="res-ref">265427</span>
+              <span class="res-ref" style="display:block;margin-top:3px">265428</span>
+              <span class="res-ref" style="display:block;margin-top:3px">265429</span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="res-hotel">Clontarf Castle</div>
+              <div class="res-loc">Dublin &middot; Aug 11&ndash;12 &middot; 1 night &middot; 3 rooms</div>
+              <span class="res-status s-confirmed" style="margin-top:4px;display:inline-block">Confirmed May 9</span>
+            </td>
+            <td>
+              <a href="https://www.clontarfcastle.ie" target="_blank" class="res-link">Clontarf Castle Hotel</a>
+              <div class="res-note" style="margin-top:3px">Group ref BX2KQZB &middot; Ashley 353149321 &middot; Jonathan 353149323 &middot; Kinsley 353149574</div>
+              <div class="res-note" style="font-size:11px;color:#aaa;margin-top:2px">BX2KQZB is the group booking; the 3 room refs are not duplicates</div>
+            </td>
+            <td>
+              <span class="res-ref">BX2KQZB</span>
+              <div class="res-note" style="font-size:11px;color:#aaa;margin:4px 0 2px">rooms:</div>
+              <span class="res-ref" style="display:block;margin-top:2px">353149321</span>
+              <span class="res-ref" style="display:block;margin-top:3px">353149323</span>
+              <span class="res-ref" style="display:block;margin-top:3px">353149574</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="confirmed-box" style="margin-top:8px">Kilkenny Ormonde Aug 6&ndash;8 &middot; Lake Hotel Aug 8&ndash;11 &middot; Clontarf Castle Aug 11&ndash;12 &nbsp;&bull;&nbsp; Cancelled: Kilkenny Ormonde ref ZZI3EWH (May 1)</div>
+    </div>
+  </div>
+
+</div>
 
 <div class="log-section">
   <div class="log-title">Logistics at a glance</div>
   <table class="log-table">
-    <tr><td class="log-key">Flight</td><td>Aer Lingus Boston Logan &rarr; Dublin direct (~6.5 hrs overnight). Depart eve Aug 5, arrive ~7&ndash;8am Aug 6.</td></tr>
-    <tr><td class="log-key">Van</td><td>9-seater Mercedes Vito or VW Transporter. Book via Europcar/Hertz Dublin Airport. Add 2 child seats (ages 3 &amp; 6).</td></tr>
-    <tr><td class="log-key">Driving</td><td>Left-hand side, narrow roads. Designate one driver. Gets easy after day 1.</td></tr>
-    <tr><td class="log-key">Rooms</td><td>3&ndash;4 rooms per night. A self-catering house in Kilkenny is ideal for the toddler&rsquo;s routine.</td></tr>
+    <tr><td class="log-key">Outbound</td><td>JetBlue B6 0353 &mdash; Boston Logan (Terminal C) departs Wed Aug 5, 9:08pm &rarr; Dublin arrives Thu Aug 6, 8:20am. JetBlue confs: NWSGVS (Jon, seat 6A Mint), OULTKT (Linda, seat 6F Mint), OTIGHJ (Kinsley seat 22D &amp; Britt seat 22E).</td></tr>
+    <tr><td class="log-key">Return</td><td>JetBlue B6 0354 &mdash; Dublin Terminal 2, departs Wed Aug 12, 10:40am &rarr; Boston Logan 12:50pm. Jon seat 26C (conf NWSGVS), Linda seat 26B (conf OULTKT), Kinsley seat 26D &amp; Britt seat 26E (conf OTIGHJ).</td></tr>
+    <tr><td class="log-key">Van (Jon)</td><td>Alamo at Dublin Airport (via RentalCars.com). <strong>Ford Tourneo Custom 9-seater</strong> or similar. Conf #2110350632, voucher 741804900. Pick-up Aug 6, 10:30am. Drop-off Aug 12, 7:30am.</td></tr>
+    <tr><td class="log-key">Car (Ashley)</td><td>Alamo at Dublin Airport (via Booking.com). <strong>Skoda Kodiaq</strong> or similar. Ref 729729134. Pick-up Aug 6, 10:30am. Drop-off Aug 12, 7:30am. RentalCover insurance: YXHA-RWPY-INS.</td></tr>
+    <tr><td class="log-key">Driving</td><td>Left-hand side, narrow roads &mdash; especially between Kilkenny and Killarney. Designate drivers in advance. Gets natural after day 1.</td></tr>
+    <tr><td class="log-key">Rooms</td><td>2 nights Kilkenny Ormonde (Aug 6&ndash;8) &bull; 3 nights Lake Hotel Killarney (Aug 8&ndash;11) &bull; 1 night Clontarf Castle Dublin (Aug 11&ndash;12).</td></tr>
     <tr><td class="log-key">Weather</td><td>15&ndash;19&deg;C (60&ndash;67&deg;F), rain likely. Light waterproof jacket for everyone.</td></tr>
     <tr><td class="log-key">Pre-Clearance</td><td>Dublin Airport has US Customs pre-clearance &mdash; you clear immigration before boarding. Arrival in Boston is domestic-style.</td></tr>
   </table>
@@ -87,113 +285,136 @@ h1 { font-size: 22px; font-weight: 500; margin-bottom: 4px; }
 <script>
 var days = [
   {
-    date: "Wed Aug 6", name: "Arrive Dublin", color: "#E1F5EE", tc: "#085041",
+    date: "Thu Aug 6", name: "Arrive Dublin &rarr; Kilkenny", color: "#FAEEDA", tc: "#633806",
+    nav: { label: "Dublin Airport → Kilkenny Ormonde Hotel", gmaps: "https://www.google.com/maps/dir/?api=1&origin=Dublin+Airport,+Ireland&destination=Kilkenny+Ormonde+Hotel,+Ormonde+Street,+Kilkenny,+Ireland", waze: "https://waze.com/ul?q=Kilkenny+Ormonde+Hotel,+Ormonde+Street,+Kilkenny,+Ireland&navigate=yes" },
     sections: [
-      { head: "Morning &mdash; arrival", acts: [
-        { title: "Land Dublin Airport ~7&ndash;8am", desc: "Collect luggage, pick up the 9-seater van, install child seats. Allow 90 min at the airport for the group.", tags: [] },
-        { title: "Check in, rest", desc: "Hotel may not have rooms ready at 9am. Drop bags and find a nearby caf&eacute;. The 3-year-old will need a nap &mdash; plan around it.", tags: [] }
+      { head: "Morning &mdash; Dublin Airport", acts: [
+        { title: "Land ~8:20am, Terminal 1", desc: "Collect luggage, clear customs, then follow signs to the Car Hire Facility (Eastlands). Pick up both Alamo vehicles &mdash; Jon&rsquo;s 9-seater van (conf 2110350632) and Ashley&rsquo;s Kodiaq (ref 729729134). Install child seats. Allow 90&ndash;120 min for the group.", tags: [{l:"2 vehicles at Alamo", c:"t-teal"}] },
+        { title: "Drive south to Kilkenny (~1.5 hrs)", desc: "M7 south then M9 &mdash; straightforward motorway. Biggest challenge is jet lag, not the road. Stop in Carlow for a coffee if anyone is fading.", tags: [{l:"~1.5 hrs", c:"t-amber"}] }
       ]},
-      { head: "Afternoon", acts: [
-        { title: "St. Stephen&rsquo;s Green", desc: "27-acre public park in the city center. Toddler-safe, a duck pond, wide paths. Perfect low-key first afternoon &mdash; everyone is tired.", tags: [{l:"great for 3yo + 6yo", c:"t-green"}, {l:"stroller-friendly", c:"t-teal"}] }
+      { head: "Afternoon &mdash; Kilkenny", acts: [
+        { title: "Kilkenny Ormonde Hotel", desc: "Official check-in at 4pm. Arrive ~noon &mdash; hotel holds luggage. Drop bags, let the toddler nap, everyone gets a reset before the afternoon.", tags: [{l:"4pm check-in", c:"t-amber"}] },
+        { title: "Kilkenny Castle &amp; Park", desc: "12th-century castle in remarkable condition. The 50-acre parkland is excellent for kids &mdash; big lawns and river walks. Castle tour ~45 min. Perfect low-key first afternoon.", tags: [{l:"castle + grounds", c:"t-purple"}, {l:"kids can run free", c:"t-green"}] },
+        { title: "Optional: St Canice&rsquo;s Cathedral", desc: "Oldest building in Kilkenny. Climb the 9th-century round tower for views over the city. A quick 30-min stop if the group has energy.", tags: [{l:"optional", c:"t-amber"}] }
       ]},
-      { head: "Evening", acts: [
-        { title: "Dinner: Baggot Street area", desc: "Avoid Temple Bar on night 1 &mdash; it&rsquo;s loud and touristy. Baggot Street (Doheny &amp; Nesbitt&rsquo;s, O&rsquo;Brien&rsquo;s) is more local, quieter, and genuinely good.", tags: [{l:"pub food", c:"t-amber"}] }
-      ]},
-      { head: "Stay &mdash; 4 nights Dublin", hotel: [
-        { name: "InterContinental Dublin", note: "4-star, Ballsbridge, spacious, easy van parking. Best for large groups.", rec: false },
-        { name: "Clayton Hotel Burlington Road", note: "4-star, central, large hotel easiest for multiple connecting rooms. More affordable.", rec: true },
-        { name: "Large Airbnb townhouse (Ballsbridge/Ranelagh)", note: "Georgian house sleeps 8&ndash;10. One kitchen &mdash; best for the toddler&rsquo;s routine and family meals.", rec: false }
-      ]}
-    ]
-  },
-  {
-    date: "Thu Aug 7", name: "Dublin &mdash; zoo, castle, music", color: "#EEEDFE", tc: "#3C3489",
-    sections: [
-      { head: "Morning", acts: [
-        { title: "Dublin Zoo, Phoenix Park", desc: "One of Europe&rsquo;s best zoos. Wide paved paths, fully stroller-accessible. Plan 3&ndash;4 hours. Picnic lunch in Phoenix Park afterwards &mdash; 1,750 acres of open space.", tags: [{l:"best morning for young kids", c:"t-green"}, {l:"stroller-friendly", c:"t-teal"}] }
-      ]},
-      { head: "Afternoon", acts: [
-        { title: "Dublin Castle", desc: "Historic seat of British rule in Ireland. State apartments tour is 45 min &mdash; good for adults and the teen. The open courtyard is manageable with small kids.", tags: [{l:"history", c:"t-purple"}] },
-        { title: "Optional: Book of Kells, Trinity College", desc: "Pre-book tickets online &mdash; sells out weeks ahead. Adults/teen only; 30 min, worth it.", tags: [{l:"pre-book required", c:"t-red"}] }
-      ]},
-      { head: "Evening", acts: [
-        { title: "Traditional music session", desc: "The Cobblestone (Smithfield) or Mulligan&rsquo;s (Poolbeg St). Sessions start ~9pm &mdash; do dinner first, arrive by 8:30pm to get a table. Genuinely atmospheric, not staged for tourists.", tags: [{l:"live trad music", c:"t-amber"}] }
-      ]}
-    ]
-  },
-  {
-    date: "Fri Aug 8", name: "Day trip &mdash; Wicklow", color: "#E1F5EE", tc: "#085041",
-    sections: [
-      { head: "Morning (45 min from Dublin)", acts: [
-        { title: "Powerscourt Estate &amp; Gardens", desc: "One of Ireland&rsquo;s great formal gardens set against the Wicklow Mountains &mdash; genuinely spectacular. Fully stroller-accessible. Caf&eacute; on site. Allow 2 hours.", tags: [{l:"stroller-friendly", c:"t-teal"}, {l:"gardens", c:"t-green"}] }
-      ]},
-      { head: "Midday (20 min further)", acts: [
-        { title: "Glendalough", desc: "A 6th-century monastic settlement in a glacial valley. The round tower and ruins are ancient and striking. The lakeside walk (1km, flat) is pushchair-friendly. Allow 1.5 hrs.", tags: [{l:"ancient history", c:"t-purple"}, {l:"mountain valley", c:"t-green"}] }
-      ]},
-      { head: "Afternoon &mdash; return to Dublin", acts: [
-        { title: "~1hr drive back, free time", desc: "Rest at hotel. Adults can walk Grafton Street or Merrion Square. Optional evening: Guinness Storehouse for adults/teen (pre-book).", tags: [{l:"optional: Guinness Storehouse", c:"t-amber"}] }
-      ]}
-    ]
-  },
-  {
-    date: "Sat Aug 9", name: "Drive to Kilkenny", color: "#FAEEDA", tc: "#633806",
-    sections: [
-      { head: "Morning &mdash; checkout + drive (~1.5 hrs)", acts: [
-        { title: "M9 motorway south", desc: "Straightforward drive. Optional stop at Kildare Village outlet center if anyone wants a browse &mdash; good plaza with decent coffee.", tags: [] }
-      ]},
-      { head: "Afternoon", acts: [
-        { title: "Kilkenny Castle &amp; Park", desc: "12th-century castle in remarkable condition. The 50-acre parkland behind is excellent for kids &mdash; big open lawns and river walks. Castle tour is ~45 min, good for adults and the teen.", tags: [{l:"castle + grounds", c:"t-purple"}, {l:"kids can run free", c:"t-green"}] }
-      ]},
-      { head: "Evening", acts: [
-        { title: "Medieval Mile &mdash; dinner in Kilkenny", desc: "Walk High St and Parliament St &mdash; best-preserved medieval streetscape in Ireland. Campagne (fine dining, book ahead), Zuni, or Marble City Bar for something more casual.", tags: [{l:"book dinner ahead", c:"t-red"}] }
+      { head: "Evening &mdash; dining options", acts: [
+        { title: "Marble City Bar", desc: "Casual pub food on High St &mdash; kid-friendly, reliable, zero fuss. Perfect for a jet-lagged first night.", tags: [{l:"casual, kid-friendly", c:"t-green"}] },
+        { title: "Zuni Restaurant", desc: "More polished option on Patrick St. Modern Irish, excellent menu. Good if the group wants something special on arrival night.", tags: [{l:"book ahead", c:"t-red"}] },
+        { title: "Left Bank", desc: "Gastropub between Marble City and Zuni in vibe. Solid choice for a mixed group.", tags: [{l:"gastropub", c:"t-amber"}] }
       ]},
       { head: "Stay &mdash; 2 nights Kilkenny", hotel: [
-        { name: "Mount Juliet Estate", note: "Luxury country house 25 min from Callan. Exceptional grounds, spa. The standout stay of the trip. Book immediately.", rec: true },
-        { name: "Kilkenny River Court Hotel", note: "4-star, central, directly on the River Nore opposite the castle. Very family-friendly.", rec: false },
-        { name: "Self-catering farmhouse near Callan", note: "Airbnb farmhouses sleep 8&ndash;12, puts you in the Callan area. Best for the toddler&rsquo;s routine.", rec: false }
+        { name: "Kilkenny Ormonde Hotel &mdash; BOOKED", note: "3 reservations: EYIJGC9 (cc Kinsley), 17T115B (cc Ashley Macielak), 9PNDG1R. Modified May 9. Central Kilkenny, walking distance to the castle and Medieval Mile.", rec: true }
       ]}
     ]
   },
   {
-    date: "Sun Aug 10", name: "Callan + Jerpoint Abbey", color: "#EEEDFE", tc: "#3C3489",
+    date: "Fri Aug 7", name: "Kilkenny &mdash; golf, roots &amp; town", color: "#EEEDFE", tc: "#3C3489",
     sections: [
-      { head: "Morning &mdash; Callan (25 min from Kilkenny)", acts: [
-        { title: "Callan town", desc: "Historic market town. Main sights: Augustinian Friary ruins (15th century) and St. Mary&rsquo;s Church ruins. Walk the main street, find a local caf&eacute;. Small town &mdash; 1.5&ndash;2 hours covers it well.", tags: [{l:"your must-see", c:"t-purple"}] }
-      ]},
-      { head: "Midday &mdash; Jerpoint Abbey (15 min from Callan)", acts: [
-        { title: "Jerpoint Abbey", desc: "Founded 1158, one of the finest Cistercian abbeys in Ireland. Remarkably intact carved cloister arcade. Guided tours are excellent. Outdoor grounds easy with kids. Allow 1.5 hrs. Don&rsquo;t skip this.", tags: [{l:"hidden gem of the trip", c:"t-purple"}, {l:"guided tours available", c:"t-teal"}] }
+      { head: "Morning &mdash; split the group", acts: [
+        { title: "Golf: Mount Juliet Estate", desc: "Championship 18-hole Jack Nicklaus course, 15 min from Kilkenny. Consistently ranked among Ireland&rsquo;s best. Book tee times well in advance.", tags: [{l:"pre-book essential", c:"t-red"}, {l:"~15 min from town", c:"t-amber"}] },
+        { title: "Ancestor visits: Callan &amp; Jerpoint Abbey", desc: "Callan (25 min from Kilkenny) &mdash; Augustinian Friary ruins and St Mary&rsquo;s Church ruins, local parish records. Then Jerpoint Abbey (15 min from Callan) &mdash; founded 1158, the finest Cistercian ruin in Ireland with an extraordinary carved cloister. Allow 3&ndash;4 hrs for both.", tags: [{l:"Kinsley priority", c:"t-purple"}, {l:"Jerpoint: don&rsquo;t skip", c:"t-purple"}] },
+        { title: "Kids: castle grounds &amp; Medieval Mile Museum", desc: "The castle parkland is huge &mdash; great for burning energy. The Medieval Mile Museum on High St has interactive exhibits good for older children and the teen.", tags: [{l:"stroller-friendly grounds", c:"t-teal"}] }
       ]},
       { head: "Afternoon", acts: [
-        { title: "Smithwick&rsquo;s Experience (adults + teen)", desc: "Kilkenny&rsquo;s red ale brewed here since 1710. Tour is 55 min, includes tasting. Adults/teen only &mdash; others walk the Kilkenny design district or relax in the castle park.", tags: [{l:"adults/teen only", c:"t-amber"}] }
+        { title: "Smithwick&rsquo;s Experience", desc: "Kilkenny&rsquo;s red ale brewed here since 1710. 55-min tour with tasting &mdash; adults and teen only. Others can browse the Kilkenny Design Centre or relax in the castle park.", tags: [{l:"adults/teen only", c:"t-amber"}, {l:"book online", c:"t-red"}] },
+        { title: "Kilkenny Design Centre, Castle Yard", desc: "Quality Irish craft in one stop &mdash; knitwear, ceramics, food. Better value than airport shopping.", tags: [{l:"great for gifts", c:"t-green"}] }
+      ]},
+      { head: "Evening &mdash; dining options", acts: [
+        { title: "Rinuccini", desc: "Italian-Irish in a cellar on The Parade. Very popular &mdash; book ahead. Good for a group dinner.", tags: [{l:"book ahead", c:"t-red"}] },
+        { title: "Langton&rsquo;s", desc: "Kilkenny institution. Bar and restaurant, good value, informal, handles big groups well.", tags: [{l:"group-friendly", c:"t-green"}] }
       ]}
     ]
   },
   {
-    date: "Mon Aug 11", name: "Drive back to Dublin", color: "#E1F5EE", tc: "#085041",
+    date: "Sat Aug 8", name: "Drive Kilkenny &rarr; Killarney", color: "#E1F5EE", tc: "#085041",
+    nav: { label: "Kilkenny Ormonde Hotel → The Lake Hotel, Killarney", gmaps: "https://www.google.com/maps/dir/?api=1&origin=Kilkenny+Ormonde+Hotel,+Ormonde+Street,+Kilkenny,+Ireland&destination=The+Lake+Hotel,+Muckross+Road,+Killarney,+Kerry,+Ireland", waze: "https://waze.com/ul?q=The+Lake+Hotel,+Muckross+Road,+Killarney,+Kerry,+Ireland&navigate=yes" },
     sections: [
-      { head: "Morning", acts: [
-        { title: "Leisurely checkout", desc: "No rush. If at Mount Juliet, use the grounds in the morning. Leave by midday.", tags: [] }
+      { head: "Morning &mdash; checkout &amp; drive (~2.5 hrs)", acts: [
+        { title: "Check out Kilkenny Ormonde, depart ~9&ndash;10am", desc: "Head south-west via the N76 / N24 / N8. Total drive is ~2.5 hrs without stops &mdash; plan for 3.5 hrs with the group and children.", tags: [{l:"plan 3.5 hrs total", c:"t-amber"}] },
+        { title: "Stop: Rock of Cashel (~45 min from Kilkenny)", desc: "Dramatic hilltop fortress &mdash; 5th-century seat of the Kings of Munster, with a 12th-century round tower and cathedral. Breathtaking from the road and up close. Allow 1 hr. Absolutely worth the stop.", tags: [{l:"unmissable", c:"t-purple"}, {l:"en route", c:"t-teal"}] },
+        { title: "Optional: Cahir Castle (~1 hr from Kilkenny)", desc: "One of Ireland&rsquo;s best-preserved castles on the River Suir. Can be seen in 20&ndash;30 min, or explored more slowly. Good energy stop before the final stretch.", tags: [{l:"optional", c:"t-amber"}, {l:"en route", c:"t-teal"}] }
       ]},
-      { head: "Midday &mdash; optional stop", acts: [
-        { title: "Irish National Stud &amp; Japanese Gardens, Kildare", desc: "On the M9, ~45 min from Kilkenny. The Japanese garden is world-class and fully stroller-friendly. Horse stud fascinating for all ages. Allow 2 hrs if you stop.", tags: [{l:"stroller-friendly", c:"t-teal"}, {l:"all ages", c:"t-green"}] }
+      { head: "Afternoon &mdash; arrive Killarney", acts: [
+        { title: "Check in: The Lake Hotel", desc: "Check-in from 4pm. On the shores of Lough Leane with mountain views. One of Ireland&rsquo;s great hotel settings. The grounds and lakeshore are excellent for the kids to explore while rooms are being readied.", tags: [{l:"4pm check-in", c:"t-amber"}] }
       ]},
-      { head: "Evening &mdash; last night in Dublin", acts: [
-        { title: "Special farewell dinner", desc: "Merrion Row or Baggot Street area. Peploe&rsquo;s, Dax, or The Shelbourne Saddle Room. Book ahead &mdash; these fill up in August.", tags: [{l:"book ahead", c:"t-red"}] }
+      { head: "Evening &mdash; Lake Hotel dinner", acts: [
+        { title: "Dinner at the Lake Hotel, 6:15pm", desc: "Confirmed in the itinerary. Book in advance directly with the hotel (064 66 31035). Children under 8 welcome 6&ndash;7pm restaurant sitting, or in the Bistro until 9pm. The lakeview at dusk is spectacular.", tags: [{l:"book with hotel", c:"t-red"}, {l:"6:15pm", c:"t-teal"}] }
+      ]},
+      { head: "Stay &mdash; 3 nights Killarney", hotel: [
+        { name: "The Lake Hotel, Killarney &mdash; BOOKED", note: "3 rooms confirmed by Ashley Macielak. Refs: 265427 &amp; 265428 (Deluxe Twin/Double, 2 guests each, &euro;877), 265429 (Deluxe Triple, 4 guests, &euro;1,007). Aug 8&ndash;11 (3 nights), B&amp;B. Check-in 4pm, checkout 12 noon. Tel: 064 66 31035.", rec: true }
+      ]}
+    ]
+  },
+  {
+    date: "Sun Aug 9", name: "Killarney &mdash; golf, farm &amp; Muckross", color: "#EEEDFE", tc: "#3C3489",
+    sections: [
+      { head: "Morning &mdash; golf", acts: [
+        { title: "Killarney Golf &amp; Fishing Club", desc: "Three courses set in the national park with mountain and lake views. Mahony&rsquo;s Point is the famous one &mdash; the 18th tee is on a peninsula in Lough Leane. Arguably the most scenic golf in Ireland. Book well in advance.", tags: [{l:"pre-book essential", c:"t-red"}, {l:"Mahony&rsquo;s Point recommended", c:"t-purple"}] }
+      ]},
+      { head: "Midday &mdash; Muckross Traditional Farms", acts: [
+        { title: "Muckross Traditional Farms", desc: "Open-air folk museum showing Irish farming life in the 1930s&ndash;40s. Live animals, working farmhouses, farmers in period costume. One of the best things to do with children in Ireland &mdash; genuinely absorbing for all ages. Allow 2 hrs. Stroller-friendly.", tags: [{l:"best kids activity of the trip", c:"t-green"}, {l:"stroller-friendly", c:"t-teal"}] }
+      ]},
+      { head: "Afternoon &mdash; Muckross House &amp; waterfall", acts: [
+        { title: "Muckross House &amp; Gardens", desc: "Victorian mansion visited by Queen Victoria in 1861. State rooms tour ~45 min. Excellent formal gardens. Jaunting cars (horse-drawn carriages) run from here through the park and to Ross Castle &mdash; a classic Killarney experience.", tags: [{l:"jaunting cars from here", c:"t-amber"}] },
+        { title: "Torc Waterfall", desc: "10-min drive from Muckross. Easy 15-min walk to the falls &mdash; mostly stroller-accessible on the lower path. Impressive cascade, especially after rain.", tags: [{l:"stroller-accessible lower path", c:"t-teal"}] }
+      ]},
+      { head: "Evening &mdash; dining options", acts: [
+        { title: "Quinlan&rsquo;s Seafood Bar", desc: "The best seafood in Killarney, on New Street. Kerry fish and shellfish fresh off the boats. Informal but excellent.", tags: [{l:"best seafood in Killarney", c:"t-teal"}] },
+        { title: "The Laurels", desc: "Traditional pub with live music and food on Main Street. Good craic for a Sunday &mdash; music usually starts around 9pm.", tags: [{l:"live trad music", c:"t-amber"}] },
+        { title: "Treyvaud&rsquo;s Restaurant", desc: "Local favourite on Market Cross. Solid modern Irish cooking, good value, handles groups well.", tags: [{l:"local favourite", c:"t-green"}] }
+      ]}
+    ]
+  },
+  {
+    date: "Mon Aug 10", name: "Killarney National Park", color: "#E1F5EE", tc: "#085041",
+    sections: [
+      { head: "Morning &mdash; national park", acts: [
+        { title: "Jaunting car through the park", desc: "Horse-drawn jaunting cars leave from Muckross and Kenmare Place in town. Routes run through old demesne woodland to Ross Castle and the lake. The drivers (jarveys) are local characters &mdash; great for the kids. Allow 1.5&ndash;2 hrs.", tags: [{l:"quintessential Killarney", c:"t-purple"}, {l:"kids love it", c:"t-green"}] },
+        { title: "Ross Castle", desc: "15th-century tower house on the Lough Leane shore, 3km from town. Take a 45-min boat trip on the lake from the jetty here &mdash; the mountain views are exceptional. Stroller-friendly grounds.", tags: [{l:"boat trips from jetty", c:"t-teal"}] }
+      ]},
+      { head: "Afternoon &mdash; scenic options", acts: [
+        { title: "Ladies&rsquo; View", desc: "Iconic Ring of Kerry viewpoint, 20 min south on the N71. Named after Queen Victoria&rsquo;s ladies-in-waiting who were reportedly transfixed by it. One of the great landscape views in Ireland. Pull off, walk around &mdash; 20 min.", tags: [{l:"best viewpoint of the trip", c:"t-purple"}] },
+        { title: "Optional: Dingle Peninsula day trip", desc: "45 min drive north-west to Dingle town, then Slea Head Drive (2 hr loop) &mdash; clifftop road with Blasket Islands views, ancient beehive huts, and raw Atlantic scenery. The most dramatic drive in Ireland. Allow a full day if going.", tags: [{l:"full day if going", c:"t-amber"}, {l:"optional", c:"t-amber"}] },
+        { title: "Optional: Gap of Dunloe", desc: "Narrow mountain pass 10km west of Killarney. Done by jaunting car, bike, or on foot &mdash; no standard cars in the gap itself. Dramatic glaciated valley. Allow 3 hrs.", tags: [{l:"no cars in the gap", c:"t-amber"}, {l:"optional", c:"t-amber"}] }
+      ]},
+      { head: "Evening &mdash; dining options", acts: [
+        { title: "Murphy-Blacks Restaurant", desc: "Fine dining on The Square. Consistently rated one of Killarney&rsquo;s best. Book ahead for a special last-night-in-Kerry dinner.", tags: [{l:"book ahead", c:"t-red"}] },
+        { title: "Kenmare for dinner (30 min drive)", desc: "The small harbour town of Kenmare has a disproportionately excellent restaurant scene. The Lime Tree and Mulcahy&rsquo;s are standouts. Worth the short drive.", tags: [{l:"30 min drive", c:"t-amber"}] }
+      ]}
+    ]
+  },
+  {
+    date: "Tue Aug 11", name: "Killarney &rarr; Dublin", color: "#FAEEDA", tc: "#633806",
+    nav: { label: "The Lake Hotel, Killarney → Clontarf Castle Hotel, Dublin", gmaps: "https://www.google.com/maps/dir/?api=1&origin=The+Lake+Hotel,+Muckross+Road,+Killarney,+Kerry,+Ireland&destination=Clontarf+Castle+Hotel,+Castle+Avenue,+Clontarf,+Dublin+3,+Ireland", waze: "https://waze.com/ul?q=Clontarf+Castle+Hotel,+Castle+Avenue,+Clontarf,+Dublin+3,+Ireland&navigate=yes" },
+    sections: [
+      { head: "Morning &mdash; checkout &amp; drive (~3.5 hrs)", acts: [
+        { title: "Check out Lake Hotel, depart ~9am", desc: "Checkout by 12 noon &mdash; aim to leave by 9&ndash;9:30am. Drive via M8 north through Cork then M8/M7/M50 to Dublin. Or the N21/N20 is a good alternative. Google Maps will route you best on the day.", tags: [{l:"checkout by 12 noon", c:"t-amber"}] },
+        { title: "Optional lunch stop: Cork City (~1.5 hrs in)", desc: "The English Market in Cork is a beautiful Victorian food hall &mdash; great for takeaway and a stretch. Or stop at Cahir or Tipperary town if the kids need a break sooner.", tags: [{l:"optional", c:"t-amber"}] }
+      ]},
+      { head: "Afternoon &mdash; check in Dublin", acts: [
+        { title: "Clontarf Castle Hotel", desc: "Check-in from 1pm. Castle hotel on the north Dublin coast, 15 min from the city centre. Let everyone decompress before the final evening.", tags: [{l:"1pm check-in", c:"t-teal"}] },
+        { title: "Clontarf Promenade &amp; Bull Island", desc: "4km flat coastal walk from the hotel. Stroller-friendly, views back to the Dublin mountains. Bull Island nature reserve is just across the bridge &mdash; seals and seabirds.", tags: [{l:"stroller-friendly", c:"t-teal"}] }
+      ]},
+      { head: "Evening &mdash; last night in Ireland", acts: [
+        { title: "Downeys of Clontarf", desc: "Pub and restaurant on the seafront, 5 min walk from the hotel. Reliable food, nice setting, low effort &mdash; perfect for a tired last evening.", tags: [{l:"5 min from hotel", c:"t-green"}] },
+        { title: "The Winding Stair", desc: "Dublin institution above a bookshop, Ha&rsquo;penny Bridge. Excellent modern Irish cooking with Liffey views. Worth the 20-min drive if the group has energy.", tags: [{l:"book ahead", c:"t-red"}] },
+        { title: "The Brazen Head", desc: "Ireland&rsquo;s oldest pub (est. 1198) on Bridge St, 20 min from Clontarf. Atmospheric stone interior, trad music most evenings. Good for one last pint.", tags: [{l:"oldest pub in Ireland", c:"t-amber"}] }
       ]},
       { head: "Stay &mdash; 1 night Dublin", hotel: [
-        { name: "Same Dublin hotel as nights 1&ndash;4", note: "Book Aug 6&ndash;9 + Aug 11 together. Confirm you can get the same rooms back when booking.", rec: false }
+        { name: "Clontarf Castle Hotel &mdash; BOOKED", note: "Group booking ref BX2KQZB (arrive Aug 11, depart Aug 12). Individual refs: Ashley 353149321, Jonathan 353149323, Kinsley 353149574. Confirmed May 9. ~15 min NE of city centre.", rec: true }
       ]}
     ]
   },
   {
-    date: "Tue Aug 12", name: "Departure day", color: "#F1EFE8", tc: "#444441",
+    date: "Wed Aug 12", name: "Departure day", color: "#F1EFE8", tc: "#444441",
     sections: [
-      { head: "Morning", acts: [
-        { title: "Bewley&rsquo;s, Grafton Street", desc: "Final Irish breakfast in the city&rsquo;s most famous caf&eacute;. Then Kilkenny Design Centre on Nassau Street for quality Irish gifts.", tags: [{l:"final morning", c:"t-amber"}] }
+      { head: "Morning &mdash; early start", acts: [
+        { title: "Hotel breakfast &amp; checkout", desc: "Car drop-off is 7:30am so pack the night before and aim to leave by 6:45am. Checkout by 12 noon formally but you&rsquo;ll be long gone. Quick breakfast at the hotel or grab coffee at the airport.", tags: [{l:"early start", c:"t-amber"}] },
+        { title: "Car return: Alamo, Dublin Airport, 7:30am", desc: "Alamo Car Hire Facility at Dublin Airport Eastlands (follow signs from the N32). Both vehicles due back 7:30am &mdash; van conf 2110350632, Kodiaq ref 729729134. ~30 min from Clontarf. Photograph both cars before dropping keys.", tags: [{l:"both cars due 7:30am", c:"t-red"}] }
       ]},
-      { head: "Afternoon &mdash; Dublin Airport", acts: [
-        { title: "Transfer and depart", desc: "Allow 90 min from city center. Return the van at the airport. Aer Lingus afternoon flight to Boston Logan.", tags: [] },
-        { title: "US Pre-Clearance", desc: "Dublin Airport has US Customs pre-clearance &mdash; you clear US immigration before boarding. Arrival in Boston is domestic-style, much faster.", tags: [{l:"US pre-clearance at Dublin", c:"t-teal"}] }
+      { head: "Flights", acts: [
+        { title: "JetBlue B6 0354 &mdash; departs 10:40am", desc: "Dublin Terminal 2 &rarr; Boston Logan, arrives 12:50pm. Jon McGrath (seat 26C, conf NWSGVS), Linda McGrath (seat 26B, conf OULTKT), Kinsley Minella (seat 26D) &amp; Britt Minella (seat 26E) &mdash; conf OTIGHJ.", tags: [{l:"Terminal 2", c:"t-teal"}, {l:"10:40am", c:"t-purple"}] },
+        { title: "US Pre-Clearance in Dublin", desc: "US Customs pre-clearance at Dublin Airport &mdash; you clear immigration before boarding. Arrival in Boston is domestic-style, much faster. Allow extra time in the check-in queue for this.", tags: [{l:"US pre-clearance at Dublin", c:"t-teal"}] }
       ]}
     ]
   }
@@ -213,40 +434,11 @@ function renderPanel() {
   var html = '<div class="day-panel"><div class="day-head">';
   html += '<div class="day-dot" style="background:' + d.color + ';color:' + d.tc + '">' + (current+1) + '</div>';
   html += '<div class="day-meta"><div class="day-date">' + d.date + '</div><div class="day-name">' + d.name + '</div></div></div>';
-  html += '<div class="day-body">';
-  d.sections.forEach(function(sec) {
-    html += '<div class="section-head">' + sec.head + '</div>';
-    if (sec.acts) {
-      sec.acts.forEach(function(act) {
-        html += '<div class="act"><div class="act-dot" style="background:' + d.tc + '"></div><div style="flex:1">';
-        html += '<div class="act-title">' + act.title + '</div>';
-        html += '<div class="act-desc">' + act.desc + '</div>';
-        if (act.tags && act.tags.length) {
-          html += '<div class="tags">' + act.tags.map(function(t) { return '<span class="tag ' + t.c + '">' + t.l + '</span>'; }).join('') + '</div>';
-        }
-        html += '</div></div>';
-      });
-    }
-    if (sec.hotel) {
-      html += '<div class="hotel-box"><div class="hotel-label">Accommodation options</div>';
-      sec.hotel.forEach(function(h) {
-        html += '<div class="hotel-row"><div class="hotel-name">' + h.name + (h.rec ? '<span class="rec">recommended</span>' : '') + '</div><div class="hotel-note">' + h.note + '</div></div>';
-      });
-      html += '</div>';
-    }
-  });
-  html += '</div></div>';
-  document.getElementById('panels').innerHTML = html;
-}
-
-function show(i) {
-  current = i;
-  renderNav();
-  renderPanel();
-}
-
-renderNav();
-renderPanel();
-</script>
-</body>
-</html>
+  if (d.nav) {
+    html += '<div class="nav-bar">';
+    html += '<span class="nav-label">&#128205; ' + d.nav.label + '</span>';
+    html += '<a class="nav-btn nav-gmaps" href="' + d.nav.gmaps + '" target="_blank">&#127759; Google Maps</a>';
+    html += '<a class="nav-btn nav-waze" href="' + d.nav.waze + '" target="_blank">&#128663; Waze</a>';
+    html += '</div>';
+  }
+  html += '<div class="day-bo
