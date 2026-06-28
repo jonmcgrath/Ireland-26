@@ -38,7 +38,7 @@ export default function ItineraryClient({ days }: Props) {
   useEffect(() => {
     fetch('/api/suggestions')
       .then(r => r.json())
-      .then(data => setSuggestions(data))
+      .then(data => setSuggestions(Array.isArray(data) ? data : []))
       .catch(() => {})
   }, [])
 
